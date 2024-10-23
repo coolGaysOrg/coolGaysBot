@@ -3,6 +3,7 @@ import dotenv from "dotenv";
 import { sirusStatusMonitoring } from "./features/sirusStatusHandler";
 import { registerCommands } from "./comands";
 import { daySummaryService } from "./features/daySummary";
+import { resolveConflictService } from "./features/resolveConflict";
 dotenv.config();
 
 const token = process.env.TELEGRAM_BOT_TOKEN;
@@ -21,7 +22,7 @@ const bot = new TelegramBot(token, { polling: true });
 daySummaryService(bot, chatId);
 
 registerCommands(bot);
-
+resolveConflictService(bot, chatId!);
 setInterval(() => {
   sirusStatusMonitoring(bot, chatId!);
 }, 30000); // каждые 30 секунд стучим в сервера
