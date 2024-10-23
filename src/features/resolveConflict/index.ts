@@ -13,6 +13,11 @@ export const resolveConflictService = async (
   bot: TelegramBot,
   chatId: string,
 ) => {
+  setInterval(() => {
+    messages = [];
+    console.log("Messages cleared.");
+  }, 86400000);
+
   bot.on("message", (msg: TelegramBot.Message) => {
     if (msg.text && !msg.text.startsWith("/")) {
       messages.push({
@@ -66,7 +71,6 @@ export const resolveConflictService = async (
       filteredMessages.forEach((msg) => {
         response += `[${msg.user}]: ${msg.text}\n`;
       });
-      /* bot.sendMessage(chatId, response); */
       const res = await sendToOpenAi({
         model: "gpt-4o-mini",
         messages: [
