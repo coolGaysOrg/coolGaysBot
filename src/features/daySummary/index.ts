@@ -26,8 +26,6 @@ export const daySummaryService = async (bot: TelegramBot, chatId: string) => {
     if (text && !isForwardMessageFromChat) {
       messagesForToday.push(`${userName}: ${text}`);
     }
-
-    console.log(messagesForToday);
   });
 
   cron.schedule("0 0 * * *", async () => {
