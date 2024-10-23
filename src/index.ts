@@ -25,6 +25,7 @@ registerCommands(bot);
 setInterval(() => {
   sirusStatusMonitoring(bot, chatId!);
 }, 30000); // каждые 30 секунд стучим в сервера
+console.log("bot started");
 
 bot.on("polling_error", console.log);
 bot.on("webhook_error", console.error);
