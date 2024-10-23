@@ -1,5 +1,5 @@
-import TelegramBot from 'node-telegram-bot-api';
-import { tagAllCommand } from './tagAll';
+import TelegramBot from "node-telegram-bot-api";
+import { tagAllCommand } from "./tagAll";
 
 // Регистрация команд
 export const registerCommands = (bot: TelegramBot) => {
