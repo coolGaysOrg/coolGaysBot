@@ -14,16 +14,17 @@ type StatisticDto = {
   }[];
 };
 
-const tagUsers = "@bogd228 @No_way_pls @Makc_AM @aleksanedro";
+const tagUsers = "@aleksanedro";
 
 function getIsOnline(data: StatisticDto, realmName: string): boolean | null {
   const realm = data.realms.find((r) => r.name === realmName);
 
   if (realm) {
     return realm.isOnline;
-  } else {
-    return null;
   }
+
+  return null;
+
 }
 
 export const sirusStatusMonitoring = async (
