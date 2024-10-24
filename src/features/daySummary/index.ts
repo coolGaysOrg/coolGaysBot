@@ -28,7 +28,7 @@ export const daySummaryService = async (bot: TelegramBot, chatId: string) => {
     }
   });
 
-  cron.schedule("0 0 * * *", async () => {
+  cron.schedule("0 21 * * *", async () => {
     if (messagesForToday.length === 0) {
       console.log("Нет сообщений для анализа.");
       return;
