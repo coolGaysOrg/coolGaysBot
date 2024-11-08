@@ -3,7 +3,7 @@ import { tagAllCommand } from "./tagAll";
 
 // Регистрация команд
 export const registerCommands = (bot: TelegramBot) => {
-  bot.onText(/\/tagAll/, (msg) => {
+  bot.onText(/\/tagall/, (msg) => {
     tagAllCommand(bot, msg);
   });
 };
