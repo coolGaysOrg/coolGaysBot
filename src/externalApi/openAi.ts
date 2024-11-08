@@ -1,4 +1,6 @@
 import axios from "axios";
+import dotenv from "dotenv";
+dotenv.config();
 
 type SendToOpenAiDto = {
   model: "gpt-4o-mini";
@@ -12,7 +14,7 @@ type SendToOpenAiResponse = {
 export const sendToOpenAi = async (data: SendToOpenAiDto) => {
   return await axios<SendToOpenAiResponse>({
     method: "post",
-    url: "http://194.36.209.192:8080/api/openai",
+    url: `http://${process.env.OPENA_AI_PROXY_URL}/api/openai`,
     data,
   });
 };
