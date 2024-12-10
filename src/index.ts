@@ -1,6 +1,5 @@
 import TelegramBot from "node-telegram-bot-api";
 import dotenv from "dotenv";
-import { sirusStatusMonitoring } from "./features/sirusStatusHandler";
 import { registerCommands } from "./comands";
 import { daySummaryService } from "./features/daySummary";
 dotenv.config();
@@ -21,10 +20,6 @@ const bot = new TelegramBot(token, { polling: true });
 daySummaryService(bot, chatId);
 
 registerCommands(bot);
-
-setInterval(() => {
-  sirusStatusMonitoring(bot, chatId!);
-}, 30000); // каждые 30 секунд стучим в сервера
 
 bot.on("polling_error", console.log);
 bot.on("webhook_error", console.error);
